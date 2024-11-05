@@ -3,27 +3,30 @@
 
 <head>
 
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
 
- <title>Render en el servidor</title>
+  <title>Render en el servidor</title>
 
- <script type="module" src="lib/js/consumeJson.js"></script>
- <script type="module" src="lib/js/muestraObjeto.js"></script>
- <script type="module" src="lib/js/muestraError.js"></script>
+  <script type="module" src="lib/js/consumeJson.js"></script>
+  <script type="module" src="lib/js/muestraObjeto.js"></script>
+  <script type="module" src="lib/js/muestraError.js"></script>
 
 </head>
 
 <body onload="consumeJson('srv/render.php')
   .then(respuesta => muestraObjeto(document, respuesta.body))
   .catch(muestraError)">
+  <p>
+    <a href="../index.html">Volver</a>
+  </p>
 
- <h1>Lista en el servidor</h1>
+  <h1>Lista en el servidor</h1>
 
- <dl id="lista">
-  <dt>Cargando&hellip;</dt>
-  <dd><progress max="100">Cargando&hellip;</progress></dd>
- </dl>
+  <dl id="lista">
+    <dt>Cargando&hellip;</dt>
+    <dd><progress max="100">Cargando&hellip;</progress></dd>
+  </dl>
 
 </body>
 
