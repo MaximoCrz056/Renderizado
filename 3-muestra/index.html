@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width">
+ <title>Muestra datos</title>
+</head>
+
+<body onload="descargaDatos()">
+
+ <h1>Muestra datos</h1>
+
+ <!-- Al mostrar un dato, se usan los atributos "id", "name" o "data-name"
+  para buscar la propiedad a desplegar en la página. -->
+
+ <p>
+  <label>
+   Nombre
+   <!-- Muestra la propiedad nombre del objeto descargado, usando la propiedad
+    value del output. -->
+   <output name="nombre"></output>
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Apellido
+   <!-- Muestra la propiedad apellido del objeto descargado, usando la propiedad
+    value del input. -->
+   <input name="apellido" type="text">
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Género
+   <!-- Muestra la propiedad genero del objeto descargado, usando la propiedad
+    value del select. -->
+   <select name="genero">
+    <option value="">Sin selección</option>
+    <option value="pop">Pop</option>
+    <option value="reg">Reguetón</option>
+   </select>
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Géneración
+   <!-- Muestra la propiedad generacion del objeto descargado, usando la
+    propiedad value del select. -->
+   <select name="generacion">
+    <option value="boom">Baby Boom</option>
+    <option value="X">X</option>
+    <option value="">Sin selección</option>
+    <option value="Y">Millenoals</option>
+    <option value="Z">Z</option>
+    <option value="alfa">Alfa</option>
+   </select>
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Edad
+   <!-- Muestra la propiedad edad del objeto descargado, usando la propiedad
+    valueAsNumber del input. -->
+   <input data-name="edad" type="number">
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Número de la suerte
+   <!-- Muestra la propiedad numero del objeto descargado, usando la propiedad
+    value del output. -->
+   <output id="numero"></output>
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Avance
+   <!-- Muestra la propiedad avance del objeto descargado, usando la propiedad
+    value del progress. -->
+   <progress id="avance" max="100"></progress>
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Capacidad
+   <!-- Muestra la propiedad capacidad del objeto descargado, usando la
+    propiedad value del meter. -->
+   <meter id="capacidad" min="50" max="80"></meter>
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Temperatura
+   <!-- Muestra la propiedad temperatura del objeto descargado, usando la
+    propiedad valueAsNumber del meter. -->
+   <input id="temperatura" type="range" min="0" max="50">
+  </label>
+ </p>
+
+ <p>
+  <label>
+   <!-- Muestra la propiedad aprobado del objeto descargado, usando la propiedad
+    checked del input, porque el tipo del dato es boolean y el input tiene
+    type="checkbox". -->
+   <input id="aprobado" type="checkbox">
+   Aprobado
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Gracioso
+   <!-- Muestra la propiedad gracioso del objeto descargado, usando la propiedad
+    value del output. -->
+   <output id="gracioso"></output>
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Emplacado
+   <!-- Muestra la propiedad emplacado del objeto descargado, usando la
+    propiedad value del select. -->
+   <select name="emplacado">
+    <option value="">Sin selección</option>
+    <option value="true">Si</option>
+    <option value="false">No</option>
+   </select>
+  </label>
+ </p>
+
+ <label>Dirección</label>
+ <!-- Muestra la propiedad direccion del objeto descargado, usando la propiedad
+  textContent del pre. -->
+ <pre id="direccion"></pre>
+
+ <p>
+  <label>
+   Encabezado
+   <!-- Muestra la propiedad encabezado del objeto descargado, usando la
+    propiedad innerHTML del span. -->
+   <span id="encabezado"></span>
+  </label>
+ </p>
+
+ <p>
+  <label>
+   Nacimiento
+   <!-- Muestra la propiedad nacimiento del objeto descargado, usando la
+    propiedad value del input. Revisa la especificación de input para
+    los distintos formatos de fecha que se pueden usar. -->
+   <input id="nacimiento" type="date">
+  </label>
+ </p>
+
+ <figure>
+  <!-- Muestra la propiedad imagen1 del objeto descargado, usando la propiedad
+   src del img. -->
+  <img id="imagen1" alt="Imagen 2">
+  <figcaption>Imagen 1</figcaption>
+ </figure>
+
+ <figure>
+  <!-- Muestra la propiedad imagen2 del objeto descargado, usando la propiedad
+   src del img. Como el valor es "", se oculta el img usando hidden = true. -->
+  <img id="imagen2" alt="Imagen 2">
+  <figcaption>Imagen 2</figcaption>
+ </figure>
+
+ <!-- Muestra la propiedad pasatiempos[] del objeto descargado; como es un
+   array, usa los elementos con name="pasatiempos[]" y les pone la propiedad
+   checked en true si su value está en el array; de lo contrario se las pone en
+   false. Los corchetes([]), le indican a PHP que la propiedad es un array
+   que puede llegar a tener 0, 1 o más elementos. -->
+ <fieldset>
+  <legend>Pasatiempos</legend>
+  <label>
+   <input type="checkbox" name="pasatiempos[]" value="fut">Futbol
+  </label>
+  <label>
+   <input type="checkbox" name="pasatiempos[]" value="chess">Ajedrez
+  </label>
+  <label>
+   <input type="checkbox" data-name="pasatiempos[]" value="basket">Basketbol
+  </label>
+ </fieldset>
+
+ <!-- Muestra la propiedad madrugador del objeto descargado; como es un
+   array, usa los elementos con name="madrugador" y les pone la propiedad
+   checked en true si su value está en el array; de lo contrario se las pone en
+   false. Como el name no tiene [], el array solo tiene 0 o un elemento. -->
+ <fieldset>
+  <legend>Madrugador</legend>
+  <label><input type="radio" name="madrugador" value="si">Si</label>
+  <label><input type="radio" name="madrugador" value="no">No</label>
+ </fieldset>
+
+ <p>
+  <label>
+   Patos
+   <!-- Muestra la propiedad patos del objeto descargado; como es un
+     array, usa los las opciones del select con name="patos[]" y les pone la
+     propiedad selected en true si su value está en el array; de lo contrario se
+     las pone en false.  Los corchetes([]), le indican a PHP que la propiedad es
+     un array que puede llegar a tener 0, 1 o más elementos. -->
+   <select name="patos[]" multiple size="3">
+    <option value="hugo">Hugo</option>
+    <option value="paco">Paco</option>
+    <option value="luis">Luis</option>
+   </select>
+  </label>
+ </p>
+</body>
+
+<script type="module">
+
+ import { exportaAHtml } from "./lib/js/exportaAHtml.js"
+ import { consumeJson } from "./lib/js/consumeJson.js"
+ import { muestraObjeto } from "./lib/js/muestraObjeto.js"
+ import { muestraError } from "./lib/js/muestraError.js"
+
+ async function descargaDatos() {
+  try {
+   const respuesta = await consumeJson("srv/datos.php")
+   muestraObjeto(document, respuesta.body)
+  } catch (error) {
+   muestraError(error)
+  }
+ }
+ exportaAHtml(descargaDatos)
+
+</script>
+
+</html>
