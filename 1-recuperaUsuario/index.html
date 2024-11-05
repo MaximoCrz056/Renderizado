@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width">
+
+ <title>Servicio que recibe y devuelve JSON</title>
+
+</head>
+
+<body>
+
+  <p>
+    <a href="../index.html">Volver</a>
+  </p>
+
+ <h1>Servicio que recibe y devuelve JSON</h1>
+ <h4>Recupera datos de un usuario de: <a href="https://jsonplaceholder.typicode.com/users" target="_blank">JSON Placeholder</a></h4>
+
+ <p><button onclick="envia()">Recupera Usuario</button></p>
+ <script type="module">
+
+  import { exportaAHtml } from "./lib/js/exportaAHtml.js"
+  import { muestraError } from "./lib/js/muestraError.js"
+  import { enviaJson } from "./lib/js/enviaJson.js"
+
+  async function envia() {
+   try {
+    const respuesta =
+     await enviaJson(
+      'https://jsonplaceholder.typicode.com/users',
+     )
+    alert(respuesta.texto)
+   } catch (error) {
+    muestraError(error)
+   }
+  }
+  exportaAHtml(envia)
+
+ </script>
+
+</body>
+
+</html>

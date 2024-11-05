@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Servicio que procesa un formulario</title>
+
+</head>
+
+<body>
+
+  <p>
+    <a href="../index.html">Volver</a>
+  </p>
+
+  <h1>
+    Adivinanza
+  </h1>
+  <h4>
+    ¿Qué cosa es que cuanto más le quitas más grande es?
+  </h4>
+
+  <form onsubmit="procesaForm(event) ">
+
+    <p>
+      <label>
+        Respuesta:
+        <!-- Como este input tiene name="nombre", su valor se recupera en el
+     servidor con leeTexto("nombre") -->
+        <input name="respuesta" placeholder="La respuesta es...">
+      </label>
+    </p>
+
+    <p><button type="submit">Procesa</button></p>
+
+  </form>
+
+  <script type="module">
+
+    import { exportaAHtml } from "./lib/js/exportaAHtml.js"
+    import { muestraError } from "./lib/js/muestraError.js"
+    import { submitForm } from "./lib/js/submitForm.js"
+
+    /**
+     * @param {Event} event
+     */
+    async function procesaForm(event) {
+      try {
+        const respuesta =
+          await submitForm(
+            "srv/procesa.php", event)
+        alert(respuesta.body)
+      } catch (error) {
+        muestraError(error)
+      }
+    }
+    exportaAHtml(procesaForm)
+
+  </script>
+
+  <script>
+    // Obtener elementos
+    const modal = document.getElementById("modal");
+    const openModalButton = document.getElementById("openModal");
+    const closeModal = document.getElementsByClassName("close")[0];
+
+    openModalButton.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    closeModal.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>
