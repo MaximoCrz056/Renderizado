@@ -2,20 +2,21 @@
 <html lang="es">
 
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width">
- <title>Muestra datos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Muestra datos</title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body onload="descargaDatos()">
-  
+
   <p>
     <a href="../index.html">Volver</a>
   </p>
 
- <h1>Muestra datos</h1>
+  <h1>Muestra datos</h1>
 
- <!-- Al mostrar un dato, se usan los atributos "id", "name" o "data-name"
+  <!-- Al mostrar un dato, se usan los atributos "id", "name" o "data-name"
   para buscar la propiedad a desplegar en la página. -->
 
   <p>
@@ -23,52 +24,52 @@
     <input name="id"></input>
   </p>
 
- <p>
-  <label>
-   Nombre:
-   <input name="name"></input>
-  </label>
- </p>
+  <p>
+    <label>
+      Nombre:
+      <input name="name"></input>
+    </label>
+  </p>
 
- <p>
-  <label for="username">Usuario:</label>
-  <input name="username"></input>
- </p>
+  <p>
+    <label for="username">Usuario:</label>
+    <input name="username"></input>
+  </p>
 
- <p>
-  <label for="email">Correo:</label>
-  <input name="email"></input>
- </p>
+  <p>
+    <label for="email">Correo:</label>
+    <input name="email"></input>
+  </p>
 
- <p>
-  <label for="phone">Telefono:</label>
-  <input name="phone"></input>
- </p>
+  <p>
+    <label for="phone">Telefono:</label>
+    <input name="phone"></input>
+  </p>
 
- <p>
-  <label for="website">Web:</label>
-  <input name="website"></input>
- </p>
+  <p>
+    <label for="website">Web:</label>
+    <input name="website"></input>
+  </p>
 
- 
+
 </body>
 
 <script type="module">
 
- import { exportaAHtml } from "./lib/js/exportaAHtml.js"
- import { consumeJson } from "./lib/js/consumeJson.js"
- import { muestraObjeto } from "./lib/js/muestraObjeto.js"
- import { muestraError } from "./lib/js/muestraError.js"
+  import { exportaAHtml } from "./lib/js/exportaAHtml.js"
+  import { consumeJson } from "./lib/js/consumeJson.js"
+  import { muestraObjeto } from "./lib/js/muestraObjeto.js"
+  import { muestraError } from "./lib/js/muestraError.js"
 
- async function descargaDatos() {
-  try {
-   const respuesta = await consumeJson("srv/datos.php")
-   muestraObjeto(document, respuesta.body)
-  } catch (error) {
-   muestraError(error)
+  async function descargaDatos() {
+    try {
+      const respuesta = await consumeJson("srv/datos.php")
+      muestraObjeto(document, respuesta.body)
+    } catch (error) {
+      muestraError(error)
+    }
   }
- }
- exportaAHtml(descargaDatos)
+  exportaAHtml(descargaDatos)
 
 </script>
 
